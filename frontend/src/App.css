@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+:root {
+    /* colors  */
+    --background:'';
+    --primary-color:"";
+    --secondary-color:"";
+    
+    /* font style  */
+    --primary-font:'';
+    --secondary-font:'';
+
+}
+
+
+@theme{
+    --background:var(background)
+}
