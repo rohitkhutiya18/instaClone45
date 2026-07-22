@@ -1,18 +1,21 @@
-@import "tailwindcss";
-
-:root {
-    /* colors  */
-    --background:'';
-    --primary-color:"";
-    --secondary-color:"";
-    
-    /* font style  */
-    --primary-font:'';
-    --secondary-font:'';
-
-}
+@import 'tailwindcss';
 
 
-@theme{
-    --background:var(background)
-}
+/* Primary      : Indigo
+Background   : Zinc-50
+Card          : White
+Text          : Zinc-900
+Secondary     : Zinc-600
+Border        : Zinc-200
+Accent        : Violet
+Success       : Emerald
+Danger        : Rose */
+
+
+/* Small     text-sm
+Normal    text-base
+Heading   text-xl */
+/* 
+rounded-xl
+rounded-2xl
+rounded-full */

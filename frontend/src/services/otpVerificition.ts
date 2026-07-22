@@ -3,10 +3,10 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const  OtpVerificationApi = createApi({
     reducerPath:'/otp',
     baseQuery:fetchBaseQuery({
-        baseUrl:'http://localhost:3000/api',
+        baseUrl:'http://localhost:3000',
         credentials:'include'
     }),
-    tagTypes:['Otp'],
+    tagTypes:['otp'],
     endpoints:(builder)=>({
         getOTP : builder.mutation({
             query:(email:string)=>({

@@ -17,6 +17,7 @@ const Login = () => {
         console.log(result)
          
         if(result.data){
+
         dipatch(setAccessToken(result.data.accessToken))
       }
 

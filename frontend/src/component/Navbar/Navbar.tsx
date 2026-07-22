@@ -1,15 +1,37 @@
 import type { RootState } from '../../store/store'
 import { useSelector } from "react-redux"
+import Logo from './Logo'
+import SearchBar from './SearchBar'
+import { Bell } from 'lucide-react'
 
 const Navbar = () => {
   const token = useSelector((state: RootState) => state.userReducer.accessToken)
+
+  console.log(token)
   return (
-    <header className=" fixed top-0 left-0 lg:left-64 w-full lg:w-[calc(100%-16rem)] h-14 border-b bg-white z-40 flex items-center justify-between px-4 " > {/* Add Post */} <button className="text-2xl font-bold">+</button>
-      {/* Logo */}
-      <h1 className="text-xl font-bold">Ir-app</h1>
-      {/* Like Button */}
-      {token && <button>❤️</button>
-      } </header>
+    <nav className='sticky w-full h-16 top-0 left-0 bg-white/80 border-b border-zinc-200/70 backdrop-blur-2xl' >
+
+    <div className='h-full flex items-center justify-between max-w-7xl px-6 '> 
+
+     {/* logo  */}
+      <Logo></Logo>
+
+      {/* searchbar  */}
+      <SearchBar></SearchBar>
+
+
+    {/* notification  */}
+    <div className='relative '>
+       <button className='flex items-center justify-center w-10 h-10 rounded-full text-zinc-700 transition-all 
+       hover:scale-105 active:scale-95 hover:bg-zinc-100 '>
+        <Bell/>
+       </button>
+       <span className='absolute flex items-center justify-center top-1 right-2 w-2 h-2 rounded-full text-sm 
+       bg-rose-400 ring-2 ring-white'></span>
+    </div>
+
+     </div>
+      </nav>
   )
 }
 

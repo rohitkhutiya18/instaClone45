@@ -24,6 +24,7 @@ const EmailAndOtp = () => {
   const onSubmit = async (data: otpInterFace) => {
     try {
       if (step === "email") {
+        console.log('requestotp')
         await requestOTP(data.email).unwrap();
         setStep("otp");
         return;
