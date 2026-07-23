@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { lazy } from "react";
 import CreatePostForm from "../component/createPost/CreatePostForm";
+import Post from "../pages/Post";
 
 
 const Login = lazy(()=>import('../pages/Login'))
@@ -15,6 +16,9 @@ export const router = createBrowserRouter([
         children:[
          {path:'create-post',
             element:<CreatePostForm/>
+         },{
+            path:'feed',
+            element:<Post/>
          }
         ]
      },{

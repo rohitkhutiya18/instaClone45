@@ -5,7 +5,7 @@ import Sidebar from '../component/Sidebar/Sidebar'
 const Layout = ({children}:{children:React.ReactNode}) => {
   return (
     <>
-      <div className='max-h-screen bg-gray-100 '>
+      <div className='max-h-screen '>
            <Navbar></Navbar>
            <div className='flex flex-row top-16 pt-16'>
             <Sidebar/>

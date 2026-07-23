@@ -4,14 +4,12 @@ import {
   type FetchArgs,
   type FetchBaseQueryError,
 } from "@reduxjs/toolkit/query/react";
-import { setAccessToken } from "../store/slices/userSlice";
-import type { RootState } from "../store/store.ts";
 
 const baseQuery = fetchBaseQuery({
   baseUrl: "http://localhost:3000",
   credentials: "include",
-  prepareHeaders: (headers,{ getState }) => {
-    const token = (getState() as RootState).userReducer.accessToken;
+  prepareHeaders: (headers) => {
+    const token = window.localStorage.getItem("accessToken")
     if (token) {
       headers.set("Authorization", `Bearer ${token}`);
     }
@@ -36,8 +34,9 @@ export const baseQueryReAuth: BaseQueryFn<
       extraOptions,
     );
 
-    if (refreshToken.data) {
-      api.dispatch(setAccessToken(refreshToken.data));
+    if (refreshToken.data && refreshToken.data) {
+
+      // window.localStorage.setItem('accessToken',refreshToken.accessToken || "")
 
       result = await baseQuery(args, api, extraOptions);
     }

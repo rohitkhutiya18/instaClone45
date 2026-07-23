@@ -2,23 +2,21 @@ import { useForm } from "react-hook-form"
 import type { loginForm } from "../types/LoginForm.Interface"
 import { useLoginRequestMutation } from "../services/login.api"
 import { useNavigate } from "react-router-dom"
-import { useDispatch } from "react-redux"
-import { setAccessToken } from "../store/slices/userSlice"
 
 const Login = () => {
     
   const [loginRequest,{isLoading:isLogining}] = useLoginRequestMutation()
   const navigate = useNavigate()
-  const dipatch = useDispatch()
     const {register,handleSubmit,formState:{errors}} = useForm<loginForm>()
+
     const onSubmit = async(data:loginForm)=>{
        try {
         const result = await loginRequest({data}).unwrap()
         console.log(result)
          
-        if(result.data){
+        if(result){
 
-        dipatch(setAccessToken(result.data.accessToken))
+        window.localStorage.setItem("accessToken",result.accessToken)
       }
 
         navigate('/home');

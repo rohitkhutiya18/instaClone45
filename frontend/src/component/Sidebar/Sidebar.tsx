@@ -1,4 +1,5 @@
 import { Home, MessageCircle, Plus, User } from "lucide-react"
+import { useNavigate } from "react-router-dom"
 
 
 const Sidebar = () => {
@@ -7,6 +8,15 @@ const Sidebar = () => {
         {name:"chat",element:<MessageCircle size={22}/>},
         {name:"profile",element:<User size={22}/>}
     ]
+  
+    const navigate = useNavigate();
+    const handleNavigateToCreatePost = ()=>{
+           const token = window.localStorage.getItem("accessToken")
+           if(!token){
+            navigate('/login')
+           }
+           navigate('/home/create-post')
+    }
   return (
     <>
        <div className="fixed left-0 top-16 flex flex-col justify-between p-6 w-64 h-[calc(100vh-4rem)] 
@@ -31,7 +41,7 @@ const Sidebar = () => {
           font-semibold
            text-white hover:scale-105 transition-all">
             <Plus size={20}/>
-            <span className="text-white">Create-Post</span>
+            <span className="text-white" onClick={handleNavigateToCreatePost}>Create-Post</span>
           </button>
 
        </div>

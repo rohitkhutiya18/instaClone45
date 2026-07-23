@@ -9,7 +9,7 @@ const Navbar = () => {
 
   console.log(token)
   return (
-    <nav className='sticky w-full h-16 top-0 left-0 bg-white/80 border-b border-zinc-200/70 backdrop-blur-2xl' >
+    <nav className='sticky w-full h-16 top-0 left-0 z-50 bg-white/80 border-b border-zinc-200/70 backdrop-blur-2xl' >
 
     <div className='h-full flex items-center justify-between max-w-7xl px-6 '> 
 
