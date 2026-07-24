@@ -8,6 +8,7 @@ const Login = lazy(()=>import('../pages/Login'))
 const Home = lazy(()=>import('../pages/Home'))
 const RegisterPage = lazy(()=>import('../pages/RegisterPage'))
 const EmailAndOtp = lazy(()=>import( "../component/otpVerifiction/EmailAndOtp"))
+const Profile = lazy(()=>import('../pages/Profile'))
 
 export const router = createBrowserRouter([
      {
@@ -19,6 +20,9 @@ export const router = createBrowserRouter([
          },{
             path:'feed',
             element:<Post/>
+         },{
+            path:'profile',
+            element:<Profile/>
          }
         ]
      },{

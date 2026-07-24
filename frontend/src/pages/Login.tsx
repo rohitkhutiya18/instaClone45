@@ -38,6 +38,14 @@ const Login = () => {
               <label htmlFor="email">password</label>
             <input id="password" disabled={isLogining} type="password" {...register('password',{
               required:true,
+              maxLength:{
+                value:8,
+                message:"max 8 char only"
+              },
+              minLength:{
+                value:5,
+                message:"min 5 char"
+              }
             })} />
             {errors.password && <p>{errors.password.message}</p>}
 

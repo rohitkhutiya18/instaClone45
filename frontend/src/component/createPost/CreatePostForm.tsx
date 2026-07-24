@@ -34,7 +34,7 @@ const CreatePostForm = () => {
       console.log(res);
       setSelectedImages([]);
       toast("post created successfully");
-      navigate("/home");
+      navigate("/home/feed");
     } catch (error) {
       console.log("error in post submit form", error);
     }

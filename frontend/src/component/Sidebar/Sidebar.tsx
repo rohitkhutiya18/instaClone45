@@ -1,12 +1,12 @@
 import { Home, MessageCircle, Plus, User } from "lucide-react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 
 const Sidebar = () => {
     const sideBarItems = [
-        {name:"home",element:<Home size={22}/>},
-        {name:"chat",element:<MessageCircle size={22}/>},
-        {name:"profile",element:<User size={22}/>}
+        {name:"home",element:<Home size={22}/>,link:'/home/feed'},
+        {name:"chat",element:<MessageCircle size={22}/>,link:'/home/feed'},
+        {name:"profile",element:<User size={22}/>,link:'/home/profile'}
     ]
   
     const navigate = useNavigate();
@@ -25,14 +25,17 @@ const Sidebar = () => {
          <div className="space-y-3">
             {
                 sideBarItems.map((val)=>{
-                    return <div key={val.name}
+                    return <Link to={val.link} key={val.name}>
+                    <div
                     className={`flex items-center gap-2 p-4 rounded-xl cursor-pointer
                      hover:bg-gray-200 transition-all duration-100`}>
+                      
                           {val.element}
                           <span className="text-zinc-400">
                             {val.name}
                           </span>
                     </div>
+                    </Link>
                 })
             }
          </div>

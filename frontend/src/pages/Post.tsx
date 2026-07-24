@@ -4,7 +4,6 @@ import type { postInterface } from '../types/Post.Interface';
 
 const Post = () => {
     const {data,isLoading}= useFetchPostOnHomeQuery(undefined)
-
     if(isLoading){
       return <h1>Loding...</h1>
     }

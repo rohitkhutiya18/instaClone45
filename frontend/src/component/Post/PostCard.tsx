@@ -10,6 +10,24 @@ interface postCardProp{
 
 const PostCard = ({postCardProp}:postCardProp) => {
   
+      const postHeaderProp = {
+        user_id:postCardProp.user_id,
+        user_userName:postCardProp.user_userName,
+        isFollowing:postCardProp.isFollowing
+      }
+
+      const postActionProp = {
+        likes:postCardProp.postlike,
+        comments:postCardProp.postComment, 
+        postId:postCardProp.post_id,
+        isLiked:postCardProp.isLiked
+      }
+
+      const postFooterProp = {
+        caption:postCardProp.post_caption,
+        createdAt : postCardProp.post_createdAt,
+  
+      }
 
 
   return (
@@ -19,10 +37,10 @@ const PostCard = ({postCardProp}:postCardProp) => {
            transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
 
             <div className="p-5 space-y-1.5">
-             <PostHeader/>
+             <PostHeader postHeaderProp = {postHeaderProp} />
              <PostMedia postMediaProp = {postCardProp.post_images} />
-             <PostAction/>
-             <PostFooter/>
+             <PostAction postActionProp = {postActionProp}/>
+             <PostFooter postFooterProp = {postFooterProp}/>
             </div>
 
         </article>

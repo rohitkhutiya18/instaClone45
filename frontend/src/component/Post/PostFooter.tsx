@@ -1,11 +1,32 @@
-const PostFooter = () => {
+import type { postFooterInterface } from "../../types/Post.Interface";
+
+interface postFooterPropInterface {
+  postFooterProp : postFooterInterface
+}
+const PostFooter = ({postFooterProp}:postFooterPropInterface) => {
+  
+  const handleDate = (date:string)=>{
+       const now  = Date.now()
+       const created = new Date(date).getTime();
+
+       const diff = Math.floor((now - created)/1000);
+       
+        if(diff < 60) return `${diff}s ago`
+        if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
+        if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
+        if (diff < 2592000) return `${Math.floor(diff / 86400)}d ago`;
+
+  return new Date(date).toLocaleDateString();
+  }
+
+
   return (
     <div className="space-y-3">
 
       {/* Likes */}
-      <p className="font-semibold text-white">
+      {/* <p className="font-semibold text-white">
         1,284 likes
-      </p>
+      </p> */}
 
 
       {/* Caption */}
@@ -15,7 +36,7 @@ const PostFooter = () => {
         </span> */}
 
         <span className="ml-2 text-zinc-600">
-        my caption
+          {postFooterProp.caption}
         </span>
       </div>
 
@@ -35,7 +56,7 @@ const PostFooter = () => {
 
       {/* Time */}
       <p className="text-xs text-zinc-500">
-        2 hours ago
+        {handleDate(postFooterProp.createdAt)}
       </p>
 
     </div>

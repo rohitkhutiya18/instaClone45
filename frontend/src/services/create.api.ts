@@ -13,7 +13,8 @@ export const createPostApi = BaseApi.injectEndpoints({
             query:()=>({
                 url:"/post/scroll",
                 method:'GET'
-            })
+            }),
+            providesTags:['post']
         })
     })
 })
